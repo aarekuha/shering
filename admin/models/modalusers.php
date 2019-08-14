@@ -47,16 +47,16 @@ class SheringModelModalusers extends JModelList
                                      tel regexp "' . (string)$search . '"');
         }
 
-        $query->where("(`class` = " . $car->class . " or `class` = -1)");
-        $query->where("(`mark` = " . $car->mark . " or `mark` = -1)");
-        $query->where("(`model` = " . $car->model . " or `model` = -1)");
-        $query->where("(`year` <= " . $car->year . ")");
-        $query->where("(`engine_type` = " . $car->engine_type . " or `engine_type` = -1)");
-        $query->where("(`engine_size` > " . $car->engine_size . " or `engine_size` = -1)");
-        $query->where("(`transmission` = " . $car->transmission . " or `transmission` = -1)");
-        $query->where("(`interior` = " . $car->interior . " or `interior` = -1)");
-        $query->where("(`conditioner` = " . $car->conditioner . " or `conditioner` = -1)");
-        $query->where("(`cost` >= " . $car->cost . " or `cost` = 0)");
+        $query->where("(a.`class` = " . $car->class . " or a.`class` = -1)");
+        $query->where("(a.`mark` = " . $car->mark . " or a.`mark` = -1)");
+        $query->where("(a.`model` = " . $car->model . " or a.`model` = -1)");
+        $query->where("(a.`year` <= " . $car->year . ")");
+        $query->where("(a.`engine_type` = " . $car->engine_type . " or a.`engine_type` = -1)");
+        $query->where("(a.`engine_size` > " . $car->engine_size . " or a.`engine_size` = -1)");
+        $query->where("(a.`transmission` = " . $car->transmission . " or a.`transmission` = -1)");
+        $query->where("(a.`interior` = " . $car->interior . " or a.`interior` = -1)");
+        $query->where("(a.`conditioner` = " . $car->conditioner . " or a.`conditioner` = -1)");
+        $query->where("(a.`cost` >= " . $car->cost . " or a.`cost` = 0)");
 
         $query->where('(`deleted` != 1)');
         $query->where('(`status` = 1)');

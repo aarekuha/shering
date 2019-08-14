@@ -38,7 +38,7 @@ $contacttelephone = JComponentHelper::getParams('com_shering')->get("contacttele
                     </div>
 
                     <input type="checkbox" name="status"<?php if ($status == "on") echo " checked"; ?>
-                           data-toggle="toggle" data-on="Все" data-off="Свободные" data-onstyle="primary" data-offstyle="success" onchange="javascript:$('#adminForm').submit();">
+                           data-toggle="toggle" data-on="Свободные" data-off="Все" data-onstyle="success" data-offstyle="primary" onchange="javascript:$('#adminForm').submit();">
                 </div>
             </div>
         </form>
@@ -172,8 +172,12 @@ $contacttelephone = JComponentHelper::getParams('com_shering')->get("contacttele
         // код для мобильных устройств
     } else {
         $('.callButton').each(function () {
-            $(this).html("Арендовать (<?php echo $contacttelephone; ?>)");
+            $(this).html("Арендовать (<?php echo substr($contacttelephone, 0, 8) . "..."; ?>)");
             $(this).attr("href", "javascript:return false;");
+            $(this).click(function() {
+                $(this).html("Арендовать (<?php echo $contacttelephone; ?>)");
+                return false;
+            });
         });
     }
 </script>

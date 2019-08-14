@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <fieldset name="basic" addfieldpath="/administrator/components/com_testing/models/fields">
+        <field name="id" type="hidden"></field>
+        <field name="document_id" type="questionparent" default="3" filter="raw" label="COM_TESTING_FIELD_QUESTION_PARENT"></field>
+
+        <field name="type" type="radio" default="0" label="COM_TESTING_FIELD_TYPE" description="COM_TESTING_FIELD_TYPE_DESC">
+            <option value="0">COM_TESTING_FIELD_TYPE_1</option>
+            <option value="1">COM_TESTING_FIELD_TYPE_2</option>
+            <option value="2">COM_TESTING_FIELD_TYPE_3</option>
+        </field>
+
+        <field name="question" type="text" value="" label="COM_TESTING_FIELD_QUESTION" description="COM_TESTING_FIELD_QUESTION_DESC"></field>
+        <field name="answers" type="answers" value="" filter="raw" label="COM_TESTING_FIELD_ANSWERS"></field>
+
+    </fieldset>
+</form>

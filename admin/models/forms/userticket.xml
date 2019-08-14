@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <fieldset name="basic">
+        <field name="id" type="hidden"></field>
+
+        <field name="user_id" type="users" filter="raw" label="COM_TESTING_FIELD_USER_TICKET_USER"></field>
+        <field name="ticket_id" type="documentparent" filter="raw" label="COM_TESTING_FIELD_USER_TICKET_TICKET"></field>
+
+    </fieldset>
+</form>

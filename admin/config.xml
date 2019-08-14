@@ -17,6 +17,8 @@
         <field name="contactmail" type="text" label="COM_SHERING_CONFIG_CONTACT_MAIL" description="COM_SHERING_CONFIG_CONTACT_MAIL"></field>
         <field name="contacttelephone" type="text" label="COM_SHERING_CONFIG_CONTACT_TELEPHONE" description="COM_SHERING_CONFIG_CONTACT_TELEPHONE"></field>
 
+        <field name="maxSize" type="text" label="COM_SHERING_CONFIG_MAX_IMAGE_SIZE" description="COM_SHERING_CONFIG_MAX_IMAGE_SIZE"></field>
+
     </fieldset>
 
     <fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">

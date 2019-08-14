@@ -37,6 +37,26 @@ class SheringModelCar extends JModelAdmin {
         $registry->loadArray($data['images']);
         $data['images'] = (string)$registry;
 
+        if (!parent::save($data)) {
+            return false;
+        }
+
+        if ($data['id']) {
+            return true;
+        }  
+
+        $data['id'] = JFactory::getDbo()->insertid();
+        $path = JPATH_SITE . "/images/cars/";
+
+        for ($i = 0; $i < 5; $i++) {
+            if (file_exists($path . "_" . $i . ".png")) { 
+                rename($path . "_" . $i . ".png", $path . $data['id'] . "_" . $i . ".png"); 
+                $registry->set("image" . $i . "", $data['id'] . "_" . $i . ".png");
+            }
+        }
+
+        $data['images'] = (string)$registry;
+
         return parent::save($data);
     }
 
@@ -51,24 +71,27 @@ class SheringModelCar extends JModelAdmin {
 
     public function addImage($suffix)
     {
-//        file_put_contents("/file.txt", $suffix);
+        error_reporting(E_ERROR | E_PARSE);
         $fn = $_FILES['images']['tmp_name'][0];
         $size = getimagesize($fn);
         $ratio = $size[0] / $size[1]; // width/height
+        $params = JComponentHelper::getParams('com_shering');
+        $maxSize = $params->get('maxSize');
+
         if ( $ratio > 1) {
-            $width = 1000;
-            $height = 1000 / $ratio;
+            $width = $maxSize;
+            $height = $maxSize / $ratio;
         }
         else {
-            $width = 1000 * $ratio;
-            $height = 1000;
+            $width = $maxSize * $ratio;
+            $height = $maxSize;
         }
         $src = imagecreatefromstring(file_get_contents($fn));
         $dst = imagecreatetruecolor($width, $height);
 
         imagealphablending( $dst, false );
         imagesavealpha( $dst, true );
-        imagecopyresampled($dst, $src,0,0,0,0, $width, $height, $size[0], $size[1]);
+        imagecopyresampled($dst, $src, 0, 0, 0, 0, $width, $height, $size[0], $size[1]);
         imagedestroy($src);
         imagepng($dst, $fn);
         imagedestroy($dst);

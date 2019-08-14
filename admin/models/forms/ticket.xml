@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <fieldset name="basic">
+        <field name="id" type="hidden"></field>
+
+        <field name="name" type="text" value="" label="COM_TESTING_FIELD_TICKET_NAME" description="COM_TESTING_FIELD_TICKET_NAME_DESC" required="true"></field>
+        <field name="value" type="text" value="" label="COM_TESTING_FIELD_TICKET_VALUE" description="COM_TESTING_FIELD_TICKET_VALUE_DESC" required="true"></field>
+
+    </fieldset>
+</form>
