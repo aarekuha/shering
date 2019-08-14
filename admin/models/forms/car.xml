@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <fieldset name="basic">
+        <field name="id" type="hidden"></field>
+
+        <field name="car_number" type="text"  size="15" default="" filter="raw" label="COM_SHERING_FIELD_CAR_NUMBER" required="true"></field>
+
+        <field name="mark" type="Sheringselect" tablename="marks" default="0" filter="raw" label="COM_SHERING_FIELD_MARK" required="true"></field>
+        <field name="model" type="Sheringselect" tablename="models" default="0" filter="raw" label="COM_SHERING_FIELD_MODEL" required="true"></field>
+
+        <field name="class" type="list" value="" label="COM_SHERING_CLASS_IN_TITLE" required="true">
+            <option value="">COM_SHERING_FIELD_CLASS_NONE</option>
+            <option value="0">COM_SHERING_FIELD_CLASS_0</option>
+            <option value="1">COM_SHERING_FIELD_CLASS_1</option>
+            <option value="2">COM_SHERING_FIELD_CLASS_2</option>
+        </field>
+
+        <field name="year" type="numeric" default="2019" filter="raw" label="COM_SHERING_FIELD_YEAR" required="true"></field>
+
+        <field name="engine_type" type="list" value="" label="COM_SHERING_ENGINE_TYPE_IN_TITLE" required="true">
+            <option value="">COM_SHERING_FIELD_ENGINE_TYPE_NONE</option>
+            <option value="0">COM_SHERING_FIELD_ENGINE_TYPE_0</option>
+            <option value="1">COM_SHERING_FIELD_ENGINE_TYPE_1</option>
+            <option value="2">COM_SHERING_FIELD_ENGINE_TYPE_2</option>
+            <option value="3">COM_SHERING_FIELD_ENGINE_TYPE_3</option>
+        </field>
+
+        <field name="engine_size" type="Sheringselect" tablename="engine_sizes" required="true" default="0" filter="raw" label="COM_SHERING_FIELD_ENGINE_SIZE"></field>
+
+        <field name="transmission" type="list" value="" label="COM_SHERING_TRANSMISSION_IN_TITLE" required="true">
+            <option value="">COM_SHERING_FIELD_TRANSMISSION_NONE</option>
+            <option value="0">COM_SHERING_FIELD_TRANSMISSION_0</option>
+            <option value="1">COM_SHERING_FIELD_TRANSMISSION_1</option>
+        </field>
+
+        <field name="interior" type="list" value="" label="COM_SHERING_INTERIOR_IN_TITLE" required="true">
+            <option value="">COM_SHERING_FIELD_INTERIOR_NONE</option>
+            <option value="0">COM_SHERING_FIELD_INTERIOR_0</option>
+            <option value="1">COM_SHERING_FIELD_INTERIOR_1</option>
+            <option value="2">COM_SHERING_FIELD_INTERIOR_2</option>
+        </field>
+
+        <field name="conditioner" type="list" value="" label="COM_SHERING_CONDITIONER_IN_TITLE" required="true">
+            <option value="">COM_SHERING_FIELD_CONDITIONER_NONE</option>
+            <option value="0">COM_SHERING_FIELD_CONDITIONER_0</option>
+            <option value="1">COM_SHERING_FIELD_CONDITIONER_1</option>
+        </field>
+
+        <field name="cost" type="numeric" value="0" label="COM_SHERING_CAR_COST" required="true"></field>
+
+        <field name="status" type="list" value="" label="COM_SHERING_FIELD_STATUS_NONE" required="true">
+            <option value="">COM_SHERING_FIELD_STATUS_NONE</option>
+            <option value="0">COM_SHERING_FIELD_STATUS_0</option>
+            <option value="1">COM_SHERING_FIELD_STATUS_1</option>
+            <option value="2">COM_SHERING_FIELD_STATUS_2</option>
+        </field>
+
+        <field name="imageForm0" imgFrom="image0" suffix="0" type="sheringimage" label="COM_SHERING_FIELD_IMAGE_LABEL_MAIN"></field>
+        <field name="imageForm1" imgFrom="image1" suffix="1" type="sheringimage" label="COM_SHERING_FIELD_IMAGE_LABEL"></field>
+        <field name="imageForm2" imgFrom="image2" suffix="2" type="sheringimage" label="COM_SHERING_FIELD_IMAGE_LABEL"></field>
+        <field name="imageForm3" imgFrom="image3" suffix="3" type="sheringimage" label="COM_SHERING_FIELD_IMAGE_LABEL"></field>
+        <field name="imageForm4" imgFrom="image4" suffix="4" type="sheringimage" label="COM_SHERING_FIELD_IMAGE_LABEL"></field>
+    </fieldset>
+
+    <fields name="images">
+        <field name="image0" type="hidden" label="COM_SHERING_FIELD_IMAGE_LABEL_MAIN" required="true"></field>
+        <field name="image1" type="hidden"></field>
+        <field name="image2" type="hidden"></field>
+        <field name="image3" type="hidden"></field>
+        <field name="image4" type="hidden"></field>
+    </fields>
+</form>

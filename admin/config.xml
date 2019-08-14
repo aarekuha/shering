@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+    <fieldset name="user" label="COM_SHERING_CONFIG_NAME_SETTINGS_LABEL" description="COM_SHERING_CONFIG_NAME_SETTINGS_DESC">
+
+        <field name="smsApiKey" type="text" label="COM_SHERING_CONFIG_API_KEY" description="COM_SHERING_CONFIG_API_KEY_DESC"></field>
+        <field name="debugSms" type="checkbox" label="COM_SHERING_CONFIG_DEBUG" description="COM_SHERING_CONFIG_DEBUG_DESC"></field>
+
+        <field name="textRemmemberSms" type="text" label="COM_SHERING_CONFIG_REMEMBER_SMS" description="COM_SHERING_CONFIG_REMEMBER_SMS"></field>
+        <field name="textPasswordSms" type="text" label="COM_SHERING_CONFIG_PASSWORD_SMS" description="COM_SHERING_CONFIG_PASSWORD"></field>
+
+        <field name="googleReCaptchaEnabled" type="checkbox" label="COM_SHERING_CONFIG_RECAPTCHA_ENABLED" description="COM_SHERING_CONFIG_RECAPTCHA_ENABLED"></field>
+        <field name="googleReCaptchaKey" type="text" label="COM_SHERING_CONFIG_GOOGLE_RECAPTCHA_KEY" description="COM_SHERING_CONFIG_GOOGLE_RECAPTCHA_KEY"></field>
+        <field name="googleReCaptchaSecretKey" type="text" label="COM_SHERING_CONFIG_GOOGLE_RECAPTCHA_SECRET_KEY" description="COM_SHERING_CONFIG_GOOGLE_RECAPTCHA_SECRET_KEY"></field>
+
+        <field name="contactaddress" type="text" label="COM_SHERING_CONFIG_CONTACT_ADDRESS" description="COM_SHERING_CONFIG_CONTACT_ADDRESS"></field>
+        <field name="contactmail" type="text" label="COM_SHERING_CONFIG_CONTACT_MAIL" description="COM_SHERING_CONFIG_CONTACT_MAIL"></field>
+        <field name="contacttelephone" type="text" label="COM_SHERING_CONFIG_CONTACT_TELEPHONE" description="COM_SHERING_CONFIG_CONTACT_TELEPHONE"></field>
+
+    </fieldset>
+
+    <fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
+        <field name="rules"
+               type="rules"
+               label="JCONFIG_PERMISSIONS_LABEL"
+               class="inputbox"
+               validate="rules"
+               filter="rules"
+               component="com_shering"
+               section="component"></field>
+    </fieldset>
+
+</config>

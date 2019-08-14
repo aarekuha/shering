@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" label="COM_SHERING_SEARCH_CRITERIES_IN_TITLE" hint="COM_SHERING_SEARCH_CRITERIES_IN_TITLE" class="js-stools-search-string"/>
+        <field name="class" type="list" label="COM_SHERING_CLASS_IN_TITLE" class="js-stools-search-string" onchange="this.form.submit();">
+            <option value="-1">COM_SHERING_FIELD_CLASS_NONE</option>
+            <option value="0">COM_SHERING_FIELD_CLASS_0</option>
+            <option value="1">COM_SHERING_FIELD_CLASS_1</option>
+            <option value="2">COM_SHERING_FIELD_CLASS_2</option>
+        </field>
+        <field name="engine_type" type="list" label="COM_SHERING_ENGINE_TYPE_IN_TITLE" class="js-stools-search-string" onchange="this.form.submit();">
+            <option value="-1">COM_SHERING_FIELD_ENGINE_TYPE_NONE</option>
+            <option value="0">COM_SHERING_FIELD_ENGINE_TYPE_0</option>
+            <option value="1">COM_SHERING_FIELD_ENGINE_TYPE_1</option>
+            <option value="2">COM_SHERING_FIELD_ENGINE_TYPE_2</option>
+            <option value="3">COM_SHERING_FIELD_ENGINE_TYPE_3</option>
+        </field>
+        <field name="transmission" type="list" label="COM_SHERING_TRANSMISSION_IN_TITLE" class="js-stools-search-string" onchange="this.form.submit();">
+            <option value="-1">COM_SHERING_FIELD_TRANSMISSION_NONE</option>
+            <option value="0">COM_SHERING_FIELD_TRANSMISSION_0</option>
+            <option value="1">COM_SHERING_FIELD_TRANSMISSION_1</option>
+        </field>
+        <field name="interior" type="list" label="COM_SHERING_INTERIOR_IN_TITLE" class="js-stools-search-string" onchange="this.form.submit();">
+            <option value="-1">COM_SHERING_FIELD_INTERIOR_NONE</option>
+            <option value="0">COM_SHERING_FIELD_INTERIOR_0</option>
+            <option value="1">COM_SHERING_FIELD_INTERIOR_1</option>
+            <option value="2">COM_SHERING_FIELD_INTERIOR_2</option>
+        </field>
+        <field name="conditioner" type="list" label="COM_SHERING_CONDITIONER_IN_TITLE" class="js-stools-search-string" onchange="this.form.submit();">
+            <option value="-1">COM_SHERING_FIELD_CONDITIONER_NONE</option>
+            <option value="0">COM_SHERING_FIELD_CONDITIONER_0</option>
+            <option value="1">COM_SHERING_FIELD_CONDITIONER_1</option>
+        </field>
+    </fields>
+    <fields name="list">
+        <field
+                name="limit"
+                type="limitbox"
+                label="COM_CONTENT_LIST_LIMIT"
+                description="COM_CONTENT_LIST_LIMIT_DESC"
+                class="input-mini"
+                default="25"
+                onchange="this.form.submit();"
+        />
+    </fields>
+</form>

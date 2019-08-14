@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <fieldset name="basic">
+        <field name="id" type="hidden"></field>
+
+        <field name="fio" type="text"  default="" filter="raw" label="COM_SHERING_FIELD_USER_FIO" required="true"></field>
+
+        <field name="tel" type="tel" default="" filter="raw" label="COM_SHERING_FIELD_USER_TEL" required="true"></field>
+        <field name="password" type="text" default="" filter="raw" label="COM_SHERING_FIELD_USER_PASSWORD" required="true"></field>
+        <field name="smscounter" type="smscounter" default="0" value="" filter="raw" label="COM_SHERING_FIELD_USER_SMSCOUNTER"></field>
+
+        <field name="status" type="list" default="0" label="COM_SHERING_FIELD_USER_STATUS" required="true">
+            <option value="">COM_SHERING_FIELD_USER_STATUS_NONE</option>
+            <option value="0">COM_SHERING_FIELD_USER_STATUS_0</option>
+            <option value="1">COM_SHERING_FIELD_USER_STATUS_1</option>
+            <option value="2">COM_SHERING_FIELD_USER_STATUS_2</option>
+        </field>
+
+        <field name="registration_date" type="calendar" default="NOW" readonly="true" label="COM_SHERING_FIELD_USER_REGISTRATION_DATE"></field>
+
+    </fieldset>
+</form>
