@@ -5,7 +5,7 @@ class SheringModelCriteries extends JModelList {
 
     public function __construct($config = array())
     {
-        $config['filter_fields'] = array('id', 'creation_date', 'fio', 'tel', 'class', 'year', 'engine_type', 'engine_size', 'transmission', 'interior', 'mark', 'model', 'cost', 'conditioner');
+        $config['filter_fields'] = array('id', 'car_number', 'creation_date', 'fio', 'tel', 'class', 'year', 'engine_type', 'engine_size', 'transmission', 'interior', 'mark', 'model', 'cost', 'conditioner');
         parent::__construct($config);
     }
 
@@ -13,7 +13,7 @@ class SheringModelCriteries extends JModelList {
     {
         $query = parent::getListQuery();
 
-        $query->select("a.id, class, year, engine_type, transmission, interior, conditioner, cost, DATE_FORMAT(creation_date, '%d.%m.%Y') as creation_date");
+        $query->select("a.id, a.class, a.year, a.engine_type, a.transmission, a.interior, a.conditioner, a.cost, DATE_FORMAT(creation_date, '%d.%m.%Y') as creation_date");
         $query->from("#__shering_criteria as a");
 
         $query->select("b.name as mark");
@@ -27,7 +27,10 @@ class SheringModelCriteries extends JModelList {
 
         $query->select("e.fio, e.tel, e.smscounter, e.status as user_status, e.id as user_id");
         $query->join("left", "#__shering_users as e on (a.user_id = e.id)");
-
+        
+        $query->select("f.car_number");
+        $query->join("left", "#__shering_cars as f on (a.car_id = f.id)");
+        
         $search = $query->escape($this->getState('filter.search'));
         if (!empty($search)) {
             $query->having('b.name regexp "' . (string)$search . '" or

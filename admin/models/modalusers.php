@@ -57,9 +57,10 @@ class SheringModelModalusers extends JModelList
         $query->where("(a.`interior` = " . $car->interior . " or a.`interior` = -1)");
         $query->where("(a.`conditioner` = " . $car->conditioner . " or a.`conditioner` = -1)");
         $query->where("(a.`cost` >= " . $car->cost . " or a.`cost` = 0)");
-
+        $query->where("(a.`car_id` = '" . $car->id . "' or a.`car_id` is NULL)");
+        
         $query->where('(`deleted` != 1)');
-        $query->where('(`status` = 1)');
+        $query->where('(`status` != 2)');
 
         $query->order("smscounter ASC, creation_date ASC");
 

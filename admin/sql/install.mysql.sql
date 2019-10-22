@@ -15,6 +15,8 @@ create table if not exists `#__shering_cars`
     `images`        text,
     `car_number`    varchar(15) default "" not null,
     `status`        tinyint(2) default 0 not null,
+    `color` 		tinyint(2) NOT NULL DEFAULT '0',
+    `desc` 			text,
     primary key (`id`)
 ) engine=innodb;
 
@@ -74,6 +76,7 @@ create table if not exists `#__shering_criteria`
     `cost`          int(5) default 0,
     `creation_date` date NOT NULL,
     `deleted`       tinyint(2) default 0 not null,
+    `car_id`        int(5),
     primary key (`id`)
 ) engine=innodb;
 
@@ -84,5 +87,14 @@ create table if not exists `#__shering_sms`
     `user_id`   int(5) unsigned NOT NULL,
     `car_id`    int(5) unsigned NOT NULL,
     `send_date` date NOT NULL,
+    primary key (`id`)
+) engine=innodb;
+
+drop table if exists `#__shering_colors`;
+create table if not exists `#__shering_colors`
+(
+    `id`        tinyint(2) NOT NULL AUTO_INCREMENT,
+    `name`   	varchar(50),
+    `value`     varchar(6),
     primary key (`id`)
 ) engine=innodb;

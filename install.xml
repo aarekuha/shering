@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<extension type="component" versio="3.0" method="upgrade">
+<extension type="component" version="3.0" method="upgrade">
     <name>COM_SHERING</name>
     <creationDate>2019-07-01</creationDate>
     <author>Rekuha</author>
     <autorEmail>aarekuha@gmail.com</autorEmail>
     <copyright>Copyright info</copyright>
-    <version>1.0.0</version>
+    <version>1.1.3</version>
     <description>COM_SHERING_DESCRIPTION</description>
 
     <install>
@@ -58,6 +58,7 @@
         <files folder="admin">
             <folder>assets</folder>
             <folder>controllers</folder>
+            <folder>css</folder>
             <folder>helpers</folder>
             <folder>images</folder>
             <folder>js</folder>

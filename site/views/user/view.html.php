@@ -123,8 +123,9 @@ class SheringViewUser extends JViewLegacy
                 $this->incorrect_login = true;
                 JFactory::getApplication()->setUserState("shering_token", "");
             } else {
+                $model->reserve(JFactory::getApplication()->input->get("reserve"));
                 $this->criteries = $this->get("Criteries");
-
+                        
                 $id = SheringModelCriteria::getUserId($this->token);
                 $filepath = JPATH_COMPONENT_ADMINISTRATOR . "/images/licenses/" . $id;
                 if (file_exists($filepath . "_1" . ".png")) {

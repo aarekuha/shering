@@ -4,6 +4,21 @@ use Joomla\Registry\Registry;
 JHtml::_('behavior.modal', 'a.modal');
 ?>
 
+<style>
+    .dot {
+        height: 25px;
+        width: 25px;
+        margin: 3px;
+        border-radius: 50%;
+        display: inline-block;
+        border: 1px solid gray;
+        opacity: 0.5;
+    }
+    .dot:hover {
+        opacity: 1;
+    }
+</style>
+
 <form action="<?php echo JRoute::_("index.php?option=com_shering&view=cars"); ?>" method="post"
              name="adminForm" id="adminForm">
     <?php if (!empty($this->sidebar)) : ?>
@@ -28,6 +43,7 @@ JHtml::_('behavior.modal', 'a.modal');
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CARS_TABLE_ENGINE_TYPE', 'engine_type', $this->listDirn, $this->listOrder); ?></th>
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CARS_TABLE_ENGINE_SIZE', 'engine_size', $this->listDirn, $this->listOrder); ?></th>
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CARS_TABLE_TRANSMISSION', 'transmission', $this->listDirn, $this->listOrder); ?></th>
+                <th><?php echo JText::_('COM_SHERING_COLOR'); ?></th>
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CARS_TABLE_INTERIOR', 'interior', $this->listDirn, $this->listOrder); ?></th>
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CARS_TABLE_CONDITIONER', 'conditioner', $this->listDirn, $this->listOrder); ?></th>
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CARS_TABLE_COST', 'cost', $this->listDirn, $this->listOrder); ?></th>
@@ -78,6 +94,11 @@ JHtml::_('behavior.modal', 'a.modal');
                             <td onclick="<?php echo $onclick; ?>" style="<?php echo $style; ?>"><?php echo $item->engine_size; ?></td>
                             <td onclick="<?php echo $onclick; ?>" style="<?php echo $style; ?>"><?php echo ($item->transmission) ? JText::_("COM_SHERING_FIELD_TRANSMISSION_1") : JText::_("COM_SHERING_FIELD_TRANSMISSION_0"); ?></td>
                             <td onclick="<?php echo $onclick; ?>" style="<?php echo $style; ?>">
+                                <?php if ($item->colorValue) : ?>
+                                <span class="dot" style="background-color: #<?php echo $item->colorValue; ?>"</span>
+                                <?php endif; ?>
+                            </td>
+                            <td onclick="<?php echo $onclick; ?>" style="<?php echo $style; ?>">
                                 <?php
                                 switch ($item->interior) {
                                     case 1 : echo JText::_("COM_SHERING_FIELD_INTERIOR_1"); break;
@@ -93,6 +114,8 @@ JHtml::_('behavior.modal', 'a.modal');
                                 switch ($item->status) {
                                     case 1 : echo JText::_("COM_SHERING_FIELD_STATUS_1"); break;
                                     case 2 : echo JText::_("COM_SHERING_FIELD_STATUS_2"); break;
+                                    case 3 : echo JText::_("COM_SHERING_FIELD_STATUS_3"); break;
+                                    case 4 : echo JText::_("COM_SHERING_FIELD_STATUS_4"); break;
                                     default : $listLink = JRoute::_("index.php?option=com_shering&tmpl=component&view=modalusers&car_id=" . $item->id);
                                               $modalAttr = 'rel="{handler: \'iframe\', size: {x:1024, y:768}}"';
                                               echo "<a href='" . $listLink . "' class='btn btn-success modal' " . $modalAttr . ">" . JText::_("COM_SHERING_FIELD_STATUS_0") . "</a>";

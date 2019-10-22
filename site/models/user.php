@@ -7,7 +7,7 @@ class SheringModelUser extends JModelItem
 {
     public function getItem($pk = null)
     {
-        $token = JFactory::getApplication()->getUserState("shering_token");;
+        $token = JFactory::getApplication()->getUserState("shering_token");
 
         if (strlen($token) != 10) {
             return false;
@@ -151,19 +151,25 @@ class SheringModelUser extends JModelItem
         $newUser->tel = $tel;
         $newUser->password = $new_password;
 
+        $params = JComponentHelper::getParams('com_shering');
+        $smsPrefix = $params->get('textPasswordSms');
+        SheringModelUser::sendSms($tel, $smsPrefix . $new_password);
+        
         if (SheringModelUser::isNewUser($tel)) {
             $newUser->fio = "";
             $newUser->smscounter = 0;
             $newUser->status = 0;
             $newUser->registration_date = date('Y-m-d');
             JFactory::getDbo()->insertObject('#__shering_users', $newUser);
+            
+            $textNewUserAlert = $params->get('textNewUserAlert');
+            $masterTel = preg_replace("/(\+7|\s)/i", "", $params->get('contacttelephone'));
+            SheringModelUser::sendSms($masterTel, $textNewUserAlert . ": +7" . $tel);
         } else {
             JFactory::getDbo()->updateObject('#__shering_users', $newUser, 'tel');
         }
 
-        $params = JComponentHelper::getParams('com_shering');
-        $smsPrefix = $params->get('textPasswordSms');
-        SheringModelUser::sendSms($tel, $smsPrefix . $new_password);
+        
     }
 
     public function update()
@@ -223,6 +229,9 @@ class SheringModelUser extends JModelItem
 
         $query->select("d.name as engine_size");
         $query->join("left", "#__shering_engine_sizes as d on d.id = a.engine_size");
+        
+        $query->select("e.car_number");
+        $query->join("left", "#__shering_cars as e on e.id = a.car_id");
 
         $query->where("`user_id` = " . $user_id);
         $query->where("`deleted` !=  1");
@@ -245,6 +254,44 @@ class SheringModelUser extends JModelItem
         $status = $db->loadResult();
         return ($status == 2) ? "blocked" : "";
     }
+    
+    public function reserve($carId)
+    {
+        if (empty($carId)) {
+            return;
+        }
+        
+        $criteries = $this->getCriteries();
+        if (count($criteries) > 2) {
+            return; 
+        }
+        
+        $token = JFactory::getApplication()->getUserState("shering_token");
+        $user_id = SheringModelCriteria::getUserId($token);
+        
+        if (empty($user_id)) {
+            return;
+        }
+        
+        $db = JFactory::getDbo();
+        
+        $criteria = new stdClass();
+        $criteria->car_id = (int)$carId;
+        $criteria->user_id = $user_id;
+        $criteria->creation_date = date('Y-m-d');
+        
+        $query = $db->getQuery(true);
+        $query->select('COUNT(*)')
+              ->from($db->quoteName('#__shering_criteria'))
+              ->where($db->quoteName('car_id') . " = " . $db->quote($criteria->car_id))
+              ->where($db->quoteName('user_id') . " = " . $db->quote($criteria->user_id));
+        $db->setQuery($query);
+        $count = $db->loadResult(); 
+        
+        if ($count) {
+            return;
+        }
+        
+        JFactory::getDbo()->insertObject('#__shering_criteria', $criteria);
+    }
 }
-
-?>

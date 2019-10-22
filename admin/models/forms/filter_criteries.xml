@@ -23,7 +23,7 @@
         <field name="interior" type="list" label="COM_SHERING_INTERIOR_IN_TITLE" class="js-stools-search-string" onchange="this.form.submit();">
             <option value="-1">COM_SHERING_FIELD_INTERIOR_NONE</option>
             <option value="0">COM_SHERING_FIELD_INTERIOR_0</option>
-            <option value="1">COM_SHERING_FIELD_INTERIOR_1</option>
+            <!--<option value="1">COM_SHERING_FIELD_INTERIOR_1</option>-->
             <option value="2">COM_SHERING_FIELD_INTERIOR_2</option>
         </field>
         <field name="conditioner" type="list" label="COM_SHERING_CONDITIONER_IN_TITLE" class="js-stools-search-string" onchange="this.form.submit();">

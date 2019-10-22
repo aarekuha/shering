@@ -194,7 +194,11 @@ JFactory::getDocument()->addStyleSheet(JUri::base() . "components/com_shering/cs
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         <?php if (($criteria->mark == "") && ($criteria->model == "")) : ?>
-                                            Любой автомобиль
+                                            <?php if ($criteria->car_number == "") : ?>
+                                                Любой автомобиль
+                                            <?php else : ?>
+                                                <?php echo "Г/н: " . $criteria->car_number; ?>
+                                            <?php endif; ?>
                                         <?php else : ?>
                                             <?php echo $criteria->mark . " " . $criteria->model; ?>
                                         <?php endif; ?>
@@ -214,7 +218,11 @@ JFactory::getDocument()->addStyleSheet(JUri::base() . "components/com_shering/cs
                                             </li>
                                         <?php endif; ?>
 
-                                        <li class="list-group-item">Год выпуска: <b>от <?php echo $criteria->year; ?> г.</b></li>
+                                        <?php if (empty($criteria->car_number)) : ?>
+                                            <li class="list-group-item">Год выпуска: 
+                                                <b><?php echo ($criteria->year == 2000) ? "Любой" : "от " . $criteria->year; ?> г.</b>
+                                            </li>
+                                        <?php endif; ?>
 
                                         <?php if ($criteria->engine_type != -1) : ?>
                                             <li class="list-group-item">

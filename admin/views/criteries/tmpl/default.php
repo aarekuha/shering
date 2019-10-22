@@ -21,6 +21,7 @@ use Joomla\Registry\Registry;
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CRITERIA_TABLE_CREATION_DATE', 'creation_date', $this->listDirn, $this->listOrder); ?></th>
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CRITERIA_TABLE_FIO', 'fio', $this->listDirn, $this->listOrder); ?></th>
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CRITERIA_TABLE_TEL', 'tel', $this->listDirn, $this->listOrder); ?></th>
+                <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CARS_TABLE_CAR_NUMBER', 'car_number', $this->listDirn, $this->listOrder); ?></th>
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CARS_TABLE_CLASS', 'class', $this->listDirn, $this->listOrder); ?></th>
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CARS_TABLE_MARK', 'mark', $this->listDirn, $this->listOrder); ?></th>
                 <th><?php echo JHtml::_('grid.sort', 'COM_SHERING_CARS_TABLE_MODEL', 'model', $this->listDirn, $this->listOrder); ?></th>
@@ -64,6 +65,8 @@ use Joomla\Registry\Registry;
                                 </a>
                             </td>
                             <td><a href="<?php echo $userLink; ?>"><?php echo $item->tel; ?></a></td>
+                            
+                            <td><?php echo $item->car_number; ?></td>
 
                             <td>
                                 <?php
@@ -79,7 +82,7 @@ use Joomla\Registry\Registry;
                             <td><?php echo $item->mark; ?></td>
                             <td><?php echo $item->model; ?></td>
 
-                            <td><?php echo $item->year; ?></td>
+                            <td><?php echo ($item->year == 2000) ? "" : $item->year; ?></td>
 
                             <td>
                                 <?php

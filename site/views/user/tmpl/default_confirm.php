@@ -19,7 +19,7 @@ JHtml::_('behavior.formvalidator');
     ?>
 <?php endif; ?>
 
-<form action="<?php echo JRoute::_("index.php?option=com_shering&view=user"); ?>" method="post">
+<form method="post">
 
     <div class="form-group">
         <label for="shering_pin">Код подтверждения:</label>

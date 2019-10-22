@@ -8,6 +8,7 @@
 
         <field name="textRemmemberSms" type="text" label="COM_SHERING_CONFIG_REMEMBER_SMS" description="COM_SHERING_CONFIG_REMEMBER_SMS"></field>
         <field name="textPasswordSms" type="text" label="COM_SHERING_CONFIG_PASSWORD_SMS" description="COM_SHERING_CONFIG_PASSWORD"></field>
+        <field name="textNewUserAlert" type="text" label="COM_SHERING_CONFIG_NEW_USER_ALERT_SMS" description="COM_SHERING_CONFIG_NEW_USER_ALERT_SMS"></field>
 
         <field name="googleReCaptchaEnabled" type="checkbox" label="COM_SHERING_CONFIG_RECAPTCHA_ENABLED" description="COM_SHERING_CONFIG_RECAPTCHA_ENABLED"></field>
         <field name="googleReCaptchaKey" type="text" label="COM_SHERING_CONFIG_GOOGLE_RECAPTCHA_KEY" description="COM_SHERING_CONFIG_GOOGLE_RECAPTCHA_KEY"></field>

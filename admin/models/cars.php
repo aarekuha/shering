@@ -5,7 +5,7 @@ class SheringModelCars extends JModelList {
 
     public function __construct($config = array())
     {
-        $config['filter_fields'] = array('id', 'class', 'year', 'engine_type', 'engine_size', 'transmission', 'interior', 'mark', 'model', 'cost', 'conditioner', 'car_number', 'status');
+        $config['filter_fields'] = array('id', 'class', 'year', 'engine_type', 'engine_size', 'transmission', 'color', 'interior', 'mark', 'model', 'cost', 'conditioner', 'car_number', 'status');
         parent::__construct($config);
     }
 
@@ -24,11 +24,15 @@ class SheringModelCars extends JModelList {
 
         $query->select("d.name as engine_size");
         $query->join("left", "#__shering_engine_sizes as d on (a.engine_size = d.id)");
+        
+        $query->select("e.value as colorValue");
+        $query->join("left", "#__shering_colors as e on (a.color = e.id)");
 
         $search = $query->escape($this->getState('filter.search'));
         if (!empty($search)) {
             $query->having('b.name regexp "' . (string)$search . '" or 
-                                      c.name regexp "' . (string)$search . '"');
+                            c.name regexp "' . (string)$search . '" or
+                            a.car_number regexp "' . (string)$search . '"');
         }
 
         if ($this->getState('filter.class') != "") {

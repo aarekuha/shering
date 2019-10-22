@@ -23,7 +23,7 @@ JHtml::_('behavior.formvalidator');
     </div>
 <?php endif; ?>
 
-<form action="<?php echo JRoute::_("index.php?option=com_shering&view=user"); ?>" method="post" id="form">
+<form method="post" id="form">
     <div class="form-group">
         <label for="tel">Телефон:</label>
         <input type="tel" class="form-control" id="shering_tel" name="shering_tel" aria-describedby="telHelp" placeholder="Номер телефона" required="required">

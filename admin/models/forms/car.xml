@@ -32,11 +32,13 @@
             <option value="0">COM_SHERING_FIELD_TRANSMISSION_0</option>
             <option value="1">COM_SHERING_FIELD_TRANSMISSION_1</option>
         </field>
+        
+        <field name="color" type="Sheringcolor" default="0" label="COM_SHERING_FIELD_COLOR"> </field>
 
         <field name="interior" type="list" value="" label="COM_SHERING_INTERIOR_IN_TITLE" required="true">
             <option value="">COM_SHERING_FIELD_INTERIOR_NONE</option>
             <option value="0">COM_SHERING_FIELD_INTERIOR_0</option>
-            <option value="1">COM_SHERING_FIELD_INTERIOR_1</option>
+            <!--<option value="1">COM_SHERING_FIELD_INTERIOR_1</option>-->
             <option value="2">COM_SHERING_FIELD_INTERIOR_2</option>
         </field>
 
@@ -53,7 +55,11 @@
             <option value="0">COM_SHERING_FIELD_STATUS_0</option>
             <option value="1">COM_SHERING_FIELD_STATUS_1</option>
             <option value="2">COM_SHERING_FIELD_STATUS_2</option>
+            <option value="3">COM_SHERING_FIELD_STATUS_3</option>
+            <option value="4">COM_SHERING_FIELD_STATUS_4</option>
         </field>
+        
+        <field name="desc" type="editor" label="COM_SHERING_FIELD_DESC" filter="safehtml"> </field>
 
         <field name="imageForm0" imgFrom="image0" suffix="0" type="sheringimage" label="COM_SHERING_FIELD_IMAGE_LABEL_MAIN"></field>
         <field name="imageForm1" imgFrom="image1" suffix="1" type="sheringimage" label="COM_SHERING_FIELD_IMAGE_LABEL"></field>
